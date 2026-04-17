@@ -3,9 +3,9 @@ services:
     build: .
     ports:
       - "8000:8000"
-    #environment:
-      #Directs the API to pull models from the MLflow container via networking magic 
-      #- MLFLOW_TRACKING_URI=http://mlflow:5000
+    environment:
+       - MODEL_PATH=models/taxi_tip_regressor.pkl
+       - MLFLOW_TRACKING_URI=http://mlflow:5000
     volumes:
       #shares project files with the container so it can access the model artifacts and app code
       - .:/app

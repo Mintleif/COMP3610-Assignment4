@@ -13,6 +13,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 #Copies the rest of the application code
 COPY app.py .
 
+#Copies the models directory containing the saved model file(s)
+COPY models/ models/
+
 #Documents the port that Uvicorn will listen on
 EXPOSE 8000
 

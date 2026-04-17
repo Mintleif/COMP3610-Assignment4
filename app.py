@@ -9,6 +9,7 @@ import uuid
 import time
 import os
 from typing import List
+import joblib
 
 #Initializes global variables for model persistence and tracking uptime
 ml_model = None
@@ -19,11 +20,17 @@ start_time = None
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     global ml_model, start_time
-    import joblib
     
-    # Load the file directly from the container's working directory
-    ml_model = joblib.load("taxi_tip_regressor.pkl")
-    print("Model loaded successfully from local file!")
+    # Retrieve model path from environment variable, defaulting to the new local directory
+    model_path = os.getenv("MODEL_PATH", "models/taxi_tip_regressor.pkl")
+
+    try:
+        # Load the file directly from the resolved path
+        ml_model = joblib.load(model_path)
+        print(f"Model loaded successfully from {model_path}!")
+    except Exception as e:
+        print(f"Error loading model from {model_path}: {e}")
+        raise e
     
     start_time = time.time()
     yield
