@@ -21,7 +21,7 @@ payload = {
     "total_amount": 18.0
 }
 
-# Loop 3 times to satisfy the Task 3.2 Rubric requirement
+# Loop 3 times to demonstrate multiple requests and show variance in predictions
 for i in range(1, 4):
     print(f"--- Sending Request {i} ---")
     
