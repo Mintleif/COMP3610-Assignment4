@@ -1,0 +1,21 @@
+#Excludes local tracking data and model artifacts to keep image size small
+mlruns/
+models/
+
+#Excludes virtual environments and Python cache
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+#Excludes Git history
+.git/
+.gitignore
+
+#Excludes large datasets and notebooks
+data/
+*.parquet
+*.csv
+*.ipynb
+*.md
+.env

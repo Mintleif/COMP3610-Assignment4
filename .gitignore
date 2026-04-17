@@ -1,0 +1,39 @@
+# Data files (Explicitly forbidden in repo)
+data/
+*.parquet
+*.csv
+
+# MLflow tracking data (Explicitly forbidden in repo)
+mlruns/
+mlruns.db
+
+# Model artifacts (Explicitly forbidden in repo)
+models/
+*.pkl
+*.pth
+*.joblib
+
+# Python environment and cache
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# OS specific files
+.DS_Store
+Thumbs.db
+# pdf files in my project folder that I don't want to track
+*.pdf
+# database files that might be generated during development or testing
+*.db
+
+#old versions of my app that I don't want to track
+app2.py
+appold.py
+*.png
+assignment4old1.ipynb
+test_appold.py
