@@ -34,7 +34,7 @@ This architecture ensures a reproducible, scalable, and production-like deployme
 The pipeline retrieves data programmatically to keep the repository lightweight:
 
 * NYC Taxi Zone lookup table is downloaded from an official public source
-* Processed dataset (`cleaned_taxi_2024_01.parquet`) is loaded dynamically
+* Processed dataset (`cleaned_taxi_2024_01.parquet`) is loaded dynamically from my repository (may be replaced by local data.parquet)
 * Ensures reproducibility without storing large datasets locally
 
 ---
@@ -101,10 +101,18 @@ mlflow.set_tracking_uri("http://localhost:5000")
 
 ---
 
-### 4. Restart API (after model registration)
+### 4. Restart API/ mlflow & api
 
 ```bash
-docker compose restart api
+docker compose down  
+docker compose up -d api
+```
+
+OR
+
+```bash
+docker compose down  
+docker compose up -d
 ```
 
 ---
@@ -192,6 +200,11 @@ Common cause:
 
 ---
 
+To check health status of API:
+```bash
+docker ps
+```
+
 ## Shutdown
 
 To stop all services:
@@ -204,9 +217,4 @@ docker compose down
 
 ## Notes
 
-* MLflow uses:
-
-  * `mlruns/` → metadata
-  * `mlartifacts/` → model files
-* Both are mounted as Docker volumes for persistence
 * The system mimics a real-world production ML deployment pipeline
