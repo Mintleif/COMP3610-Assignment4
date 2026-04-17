@@ -24,8 +24,7 @@ This architecture ensures a reproducible, scalable, and production-like deployme
 ├── docker-compose.yml      # Multi-service orchestration (API + MLflow)
 ├── requirements.txt        # Python dependencies
 ├── .dockerignore           # Docker build optimization
-├── .gitignore              # Git file exclusions
-└── mlruns/ & mlartifacts/  # MLflow tracking + artifact storage
+└── .gitignore              # Git file exclusions
 ```
 
 ---
